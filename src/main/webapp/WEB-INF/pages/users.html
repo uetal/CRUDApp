@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+<h1>Users</h1>
+
+<table border="1">
+    <tr>
+        <th>№</th>
+        <th>name</th>
+        <th>age</th>
+        <th>action</th>
+    </tr>
+
+    <tr th:each="user: ${user}">
+        <td th:utext="${user.id}">№</td>
+        <td th:utext="${user.name}">Name</td>
+        <td th:utext="${user.age}">Age</td>
+        <td>
+            <a th:href="@{'/edit/'+${user.id}}">edit</a>
+            <a th:href="@{'/delete/'+${user.id}}">delete</a>
+        </td>
+    </tr>
+</table>
+<a href="/new">Add new User</a>
+</body>
+</html>
